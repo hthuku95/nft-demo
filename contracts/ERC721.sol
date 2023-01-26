@@ -38,6 +38,9 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     // Mapping from owner to operator approvals
     mapping(address => mapping(address => bool)) private _operatorApprovals;
 
+    // Optional mapping for token URIs
+    mapping(uint256 => string) private _tokenURIs;
+
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
      */
@@ -104,6 +107,11 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      */
     function _baseURI() internal view virtual returns (string memory) {
         return "";
+    }
+
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
+        require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
+        _tokenURIs[tokenId] = _tokenURI;
     }
 
     /**
