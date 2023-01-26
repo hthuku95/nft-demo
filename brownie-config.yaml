@@ -1,0 +1,39 @@
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
+dotenv: .env
+networks:
+  goerli:
+    eth_usd_price_feed: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
+    vrf_coordinator: '0x2bce784e69d2Ff36c71edcB9F88358dB0DfB55b4'
+    link_token: '0x326C977E6efc84E512bB9C30f76E30c160eD06FB'
+    verify: True
+    keyhash: "0x0476f9a745b61ea5c0ab224d3a6e4c99f0b02fce4da01143a4f70aa80ae76e8a"
+    fee: 100000000000000000
+  development:
+    verify: False
+    keyhash: "0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311"
+    fee: 100000000000000000
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    vrf_coordinator: '0x271682DEB8C4E0901D1a1550aD2e64D568E69909'
+    link_token: '0x514910771AF9Ca656af840dff83E8264EcF986CA'
+    verify: False
+    keyhash:
+    fee:
+  mainnet:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    vrf_coordinator: '0x271682DEB8C4E0901D1a1550aD2e64D568E69909'
+    link_token: '0x514910771AF9Ca656af840dff83E8264EcF986CA'
+    verify: True
+    keyhash:
+    fee:
+  ganache-local:
+    verify: False
+    keyhash: "0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311"
+    fee: 100000000000000000
+wallets:
+  from_key: ${PRIVATE_KEY}
